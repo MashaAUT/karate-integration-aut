@@ -6,7 +6,7 @@ on:
 
 jobs:
     test:
-        runs-on: debian-11 🐧
+        runs-on: ubuntu-latest 🐧
         steps:
             - uses: actions/checkout@v3
             - name: Setup Java
