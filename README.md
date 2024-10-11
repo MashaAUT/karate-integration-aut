@@ -10,6 +10,7 @@
 </p>
 <p align="center">
 		<em>Built with the tools and technologies:</em>
+		<em>https://wa.me/qr/2WGSRBDHWDVDG1 📲</em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
