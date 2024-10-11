@@ -1,4 +1,4 @@
-name: Karate CI [Masha]
+name: CI and CD
 
 on:
   push:
@@ -16,6 +16,11 @@ jobs:
           java-version: "17"
           distribution: "temurin"
           cache: maven
+      - name: Download Karate
+        uses: actions/download-artifact@v2
+        with:
+          name: karate
+          path: karate.jar
       - name: Install Karate
         run: |
           java -jar karate.jar --configdir ./karate-config
