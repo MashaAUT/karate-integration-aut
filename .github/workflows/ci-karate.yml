@@ -1,46 +1,45 @@
-name: karate CI and CD
+name: Karate CI and CD 
 
 on:
   push:
     branches:
       - master
 
-
 jobs:
-    test:
-        runs-on: ubuntu-latest 🐧
-        steps:
-            - uses: actions/checkout@v3
-            - name: Setup Java
-              uses: actions/setup-java@v3
-              with:
-                java-version: "17"
-                distribution: "temurin"
-                cache: maven
-            - name: Install Karate
-              run: |
-                curl -Lo karate.jar https://github.com/intuit/karate/releases/download/v1.2.1/karate.jar
-                java -jar karate.jar --configdir ./karate-config
-            - name: Run Karate Tests
-              run: java -jar karate.jar test
-            - name: Run Test
-              run: mvn test
-            - name: SonarQube Scan
-              env:
-                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-                SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-              run: |
-                mvn sonar:sonar
-            - name: Export test results as a tar file
-              if: always()
-              run: tar -cvf test-results.tar ./target/karate-reports/
-            - name: Archieve test artifacts
-              uses: actions/upload-artifact@v3
-              with:
-                name: test-results
-                path: test-results.tar
-            - name: Upload SonarQube Report
-              uses: actions/upload-artifact@v3
-              with:
-                name: sonar-report
-                path: target/sonar/report
+  test:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: maven
+      - name: Install Karate
+        run: |
+          curl -Lo karate.jar https://github.com/intuit/karate/releases/download/v1.2.1/karate.jar
+          java -jar karate.jar --configdir ./karate-config
+      - name: Run Karate Tests
+        run: java -jar karate.jar test
+      - name: Run Test
+        run: mvn test
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+          mvn sonar:sonar
+      - name: Export test results as a tar file
+        if: always()
+        run: tar -cvf test-results.tar ./target/karate-reports/
+      - name: Archieve test artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: test-results.tar
+      - name: Upload SonarQube Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: sonar-report
+          path: target/sonar/report
