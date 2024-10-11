@@ -34,7 +34,7 @@ public class DataFactoryKarate {
     }
 
     public static String string() {
-        return RandomUtil.stringWithLength(faker.number().numberBetween(1, 10));
+        return DataFactoryKarate.stringWithLength(faker.number().numberBetween(1, 10));
     }
 
     public static Integer number() {
