@@ -1,4 +1,4 @@
-name: CI and CD 
+name: Karate CI [Masha]
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup Java
@@ -17,10 +17,6 @@ jobs:
           distribution: "temurin"
           cache: maven
       - name: Install Karate
-        uses: actions/download-artifact@v2
-        with:
-          name: karate
-          path: karate.jar
         run: |
           java -jar karate.jar --configdir ./karate-config
       - name: Run Karate Tests
