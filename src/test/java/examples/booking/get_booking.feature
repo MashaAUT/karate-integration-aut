@@ -2,6 +2,7 @@ Feature: Retrieve booking by id
 
 Background:
   * url bookingURL
+  * def expectedResponse = read('classpath:expected-response.json')
 
 @get-booking
 Scenario: Get booking by id
@@ -9,20 +10,7 @@ Scenario: Get booking by id
   And header Accept = 'application/json'
   And method get
   Then status 200
-  Then match response ==
-  """
-  {
-    "firstname": "#string",
-    "lastname": "#string",
-    "totalprice": '#number',
-    "depositpaid": '#boolean',
-    "bookingdates": {
-        "checkin": "#string",
-        "checkout": "#string"
-    },
-    "additionalneeds": "##string"
-  }
-  """
+  Then match response == expectedResponse
 
 @get-booking-not-found
 Scenario: Get booking by id - Not Found
