@@ -16,6 +16,14 @@ jobs:
           java-version: "17"
           distribution: "temurin"
           cache: maven
+      - name: Upload Karate
+        run: |
+          mkdir -p karate
+          cp karate.jar karate/
+        uses: actions/upload-artifact@v3
+        with:
+          name: karate
+          path: karate/
       - name: Download Karate
         uses: actions/download-artifact@v3
         with:
