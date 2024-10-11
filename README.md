@@ -1,11 +1,8 @@
 <p align="center">
-  <img src="LLM" width="60%" alt="KARATE-INTEGRATION-AUT.GIT-logo">
+  <img src="LLM" width="60%" alt="![alt text](https://github.com/MashaAUT/karate-integration-aut/blob/master/manual-report/.09876545678.jpg)>
 </p>
 <p align="center">
     <h1 align="center">KARATE-INTEGRATION-AUT.GIT</h1>
-</p>
-<p align="center">
-    <em><code>❯ ![alt text](https://github.com/MashaAUT/karate-integration-aut/blob/master/manual-report/.09876545678.jpg)</code></em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/MashaAUT/karate-integration-aut.git?style=flat&logo=opensourceinitiative&logoColor=white&color=ff0074" alt="license">
