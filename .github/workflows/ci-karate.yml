@@ -17,8 +17,11 @@ jobs:
           distribution: "temurin"
           cache: maven
       - name: Install Karate
+        uses: actions/download-artifact@v2
+        with:
+          name: karate
+          path: karate.jar
         run: |
-          wget https://github.com/intuit/karate/releases/download/v1.2.1/karate.jar
           java -jar karate.jar --configdir ./karate-config
       - name: Run Karate Tests
         run: java -jar karate.jar test
